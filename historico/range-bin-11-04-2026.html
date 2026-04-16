@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Range de BIN — VISION 21 | 11/04/2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0A0E1A;--bg-card:rgba(255,255,255,0.05);--border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.15);--text:#F0F0F5;--text-muted:#8B8FA3;--text-dim:#5A5F73;--green:#21C25E;--green-dim:rgba(33,194,94,0.12);--yellow:#F5A623;--yellow-dim:rgba(245,166,35,0.12);--orange:#F97316;--orange-dim:rgba(249,115,22,0.12);--red:#EF4444;--red-dim:rgba(239,68,68,0.12);--blue:#3B82F6;--purple:#A855F7;}
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:rgba(10,14,26,0.95);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:50px;padding:10px 24px;display:flex;align-items:center;gap:24px;z-index:100;white-space:nowrap;}
+  nav .brand{font-weight:800;font-size:13px;}.nav .brand span{color:var(--green);}
+  .date-badge{font-size:10px;font-weight:700;background:rgba(33,194,94,0.15);color:var(--green);border:1px solid rgba(33,194,94,0.3);border-radius:20px;padding:2px 10px;margin-left:8px;}
+  nav a{color:var(--text-muted);text-decoration:none;font-size:12px;font-weight:500;transition:color .2s;}
+  nav a:hover,nav a.active{color:var(--text);}
+  nav .dots{display:flex;gap:8px;margin-left:4px;}
+  nav .dot{width:6px;height:6px;border-radius:50%;background:var(--text-dim);cursor:pointer;transition:all .2s;}
+  nav .dot.active{background:var(--green);transform:scale(1.4);}
+  section{min-height:100vh;padding:120px 40px 80px;display:flex;flex-direction:column;justify-content:center;}
+  .container{max-width:1200px;margin:0 auto;width:100%;}
+  .section-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  .section-label::before{content:'';display:inline-block;width:3px;height:14px;background:var(--green);border-radius:2px;}
+  h2{font-size:clamp(24px,3vw,36px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+  .text-muted{color:var(--text-muted);}.mb-32{margin-bottom:32px;}.mb-40{margin-bottom:40px;}
+  #hero{position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(33,194,94,0.07) 0%,transparent 60%),var(--bg);}
+  #hero::before{content:'';position:absolute;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(33,194,94,0.05) 0%,transparent 70%);border-radius:50%;animation:pulse-glow 6s ease-in-out infinite;}
+  @keyframes pulse-glow{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.15);opacity:0.6;}}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+  h1.hero-title{font-size:clamp(36px,5vw,60px);font-weight:900;letter-spacing:-2px;line-height:1.05;margin-bottom:12px;position:relative;z-index:1;}
+  h1.hero-title .accent{color:var(--green);}
+  .hero-subtitle{font-size:15px;color:var(--text-muted);margin-bottom:16px;max-width:520px;position:relative;z-index:1;}
+  .sos-banner{display:flex;align-items:center;gap:14px;padding:16px 22px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);border-radius:12px;margin-bottom:40px;position:relative;z-index:1;}
+  .sos-icon{font-size:24px;animation:blink 0.8s infinite;}
+  .sos-text{font-size:14px;font-weight:700;color:#FCA5A5;}
+  .sos-sub{font-size:12px;color:var(--text-muted);margin-top:2px;}
+  .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;position:relative;z-index:1;}
+  .kpi-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:all .3s;}
+  .kpi-card:hover{border-color:var(--border-hover);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3);}
+  .kpi-label{font-size:11px;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;}
+  .kpi-value{font-size:32px;font-weight:800;letter-spacing:-1px;}
+  .kpi-sub{font-size:11px;color:var(--text-dim);margin-top:4px;}
+  .kpi-card.red .kpi-value{color:var(--red);}.kpi-card.orange .kpi-value{color:var(--orange);}.kpi-card.yellow .kpi-value{color:var(--yellow);}.kpi-card.green .kpi-value{color:var(--green);}
+  .alert-banner{display:flex;align-items:center;gap:16px;padding:14px 20px;border-radius:12px;margin-bottom:16px;font-size:13px;font-weight:500;}
+  .alert-banner.critical{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:#FCA5A5;}
+  .alert-banner.warning{background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.25);color:#FED7AA;}
+  .delta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;}
+  .delta-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px;}
+  .delta-emissor{font-size:11px;color:var(--text-dim);margin-bottom:3px;}
+  .delta-produto{font-size:15px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .delta-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12px;color:var(--text-muted);}
+  .delta-row .val{font-size:13px;font-weight:600;color:var(--text);}.delta-row .val.neg{color:var(--red);}.delta-row .val.pos{color:var(--green);}
+  .delta-chip{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;display:inline-flex;align-items:center;gap:3px;}
+  .delta-chip.consumo{background:rgba(239,68,68,0.12);color:var(--red);border:1px solid rgba(239,68,68,0.2);}
+  .delta-chip.novo{background:rgba(168,85,247,0.12);color:var(--purple);border:1px solid rgba(168,85,247,0.2);}
+  .risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;}
+  .risk-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all .3s;position:relative;overflow:hidden;}
+  .risk-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px;}
+  .risk-card.crítico::before,.risk-card.critical::before{background:var(--red);}
+  .risk-card.alerta::before,.risk-card.alert::before{background:var(--orange);}
+  .risk-card.atenção::before,.risk-card.warning::before{background:var(--yellow);}
+  .risk-card:hover{border-color:var(--border-hover);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.25);}
+  .risk-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+  .risk-title{font-weight:700;font-size:15px;}.risk-emis{font-size:11px;color:var(--text-dim);margin-bottom:4px;}
+  .risk-badge{font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px;}
+  .risk-badge.critical{background:var(--red-dim);color:var(--red);border:1px solid rgba(239,68,68,.3);}
+  .risk-badge.alert{background:var(--orange-dim);color:var(--orange);border:1px solid rgba(249,115,22,.3);}
+  .risk-badge.warning{background:var(--yellow-dim);color:var(--yellow);border:1px solid rgba(245,166,35,.3);}
+  .risk-bar-wrap{margin:12px 0;}
+  .risk-bar-label{display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-bottom:6px;}
+  .risk-bar-track{height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;}
+  .risk-bar-fill{height:100%;border-radius:4px;}
+  .risk-bar-fill.critical{background:linear-gradient(90deg,var(--red),#F97316);}
+  .risk-bar-fill.alert{background:linear-gradient(90deg,var(--orange),#FBBF24);}
+  .risk-bar-fill.warning{background:linear-gradient(90deg,var(--yellow),#84CC16);}
+  .risk-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px;}
+  .risk-stat{text-align:center;background:rgba(255,255,255,.04);border-radius:8px;padding:10px 8px;}
+  .risk-stat .s-label{font-size:10px;color:var(--text-dim);margin-bottom:4px;}
+  .risk-stat .s-value{font-size:13px;font-weight:700;}
+  .s-value.red{color:var(--red);}.s-value.orange{color:var(--orange);}.s-value.yellow{color:var(--yellow);}
+  .risk-note{margin-top:10px;font-size:12px;color:var(--text-muted);padding:9px 13px;border-radius:8px;border-left:2px solid;}
+  .risk-note.crit{background:rgba(239,68,68,.07);border-left-color:var(--red);}
+  .risk-note.alrt{background:rgba(249,115,22,.07);border-left-color:var(--orange);}
+  .risk-note.warn{background:rgba(245,166,35,.07);border-left-color:var(--yellow);}
+  .risk-note.neut{background:rgba(255,255,255,.03);border-left-color:var(--text-dim);}
+  .chart-section{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media(max-width:900px){.chart-section{grid-template-columns:1fr;}}
+  .chart-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:28px;}
+  .chart-title{font-size:13px;font-weight:600;margin-bottom:20px;}
+  .chart-title span{color:var(--text-muted);font-weight:400;}
+  .bar-chart{display:flex;flex-direction:column;gap:11px;}
+  .bar-row{display:flex;align-items:center;gap:12px;}
+  .bar-label{font-size:12px;color:var(--text-muted);width:56px;flex-shrink:0;text-align:right;}
+  .bar-track{flex:1;height:24px;background:rgba(255,255,255,.05);border-radius:6px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:10px;font-size:11px;font-weight:600;}
+  .bar-fill.c{background:linear-gradient(90deg,rgba(239,68,68,.85),rgba(239,68,68,.5));color:#FCA5A5;}
+  .bar-fill.a{background:linear-gradient(90deg,rgba(249,115,22,.8),rgba(249,115,22,.5));color:#FED7AA;}
+  .bar-fill.w{background:linear-gradient(90deg,rgba(245,166,35,.8),rgba(245,166,35,.5));color:#FDE68A;}
+  .bar-fill.g{background:linear-gradient(90deg,rgba(33,194,94,.6),rgba(33,194,94,.3));color:#A7F3D0;}
+  .table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;}
+  thead tr{background:rgba(255,255,255,.04);}
+  thead th{padding:12px 16px;text-align:left;font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--border);white-space:nowrap;}
+  thead th.right{text-align:right;}
+  tbody tr{border-bottom:1px solid rgba(255,255,255,.04);transition:background .15s;}
+  tbody tr:last-child{border-bottom:none;}
+  tbody tr:hover{background:rgba(255,255,255,.03);}
+  td{padding:12px 16px;font-size:13px;}
+  td.right{text-align:right;font-variant-numeric:tabular-nums;}
+  td.mono{font-family:'SF Mono','Fira Code',monospace;font-size:11px;color:var(--text-muted);}
+  .pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;}
+  .pill.crítico{background:var(--red-dim);color:var(--red);border:1px solid rgba(239,68,68,.25);}
+  .pill.alerta{background:var(--orange-dim);color:var(--orange);border:1px solid rgba(249,115,22,.25);}
+  .pill.atenção{background:var(--yellow-dim);color:var(--yellow);border:1px solid rgba(245,166,35,.25);}
+  .pill.ok{background:var(--green-dim);color:var(--green);border:1px solid rgba(33,194,94,.2);}
+  .tag-a{display:inline-block;font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(33,194,94,.1);color:var(--green);font-weight:600;}
+  .tag-m{display:inline-block;font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(59,130,246,.1);color:var(--blue);font-weight:600;}
+  .pct-bar{display:flex;align-items:center;gap:10px;}
+  .pct-mini{width:80px;height:5px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden;flex-shrink:0;}
+  .pct-mini-fill{height:100%;border-radius:3px;}
+  .pct-mini-fill.c{background:var(--red);}.pct-mini-fill.a{background:var(--orange);}.pct-mini-fill.w{background:var(--yellow);}.pct-mini-fill.g{background:var(--green);}
+  .pct-txt{font-size:12px;font-weight:600;font-variant-numeric:tabular-nums;min-width:50px;text-align:right;}
+  .pct-txt.c{color:var(--red);}.pct-txt.a{color:var(--orange);}.pct-txt.w{color:var(--yellow);}.pct-txt.g{color:var(--green);}
+  .delta-inline{font-size:10px;font-weight:600;margin-left:4px;}
+  .delta-inline.neg{color:var(--red);}.delta-inline.pos{color:var(--green);}
+  .fade-up{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;}
+  .fade-up.visible{opacity:1;transform:translateY(0);}
+  .s1{transition-delay:.05s;}.s2{transition-delay:.1s;}.s3{transition-delay:.15s;}.s4{transition-delay:.2s;}
+  footer{text-align:center;padding:48px 40px;border-top:1px solid var(--border);color:var(--text-dim);font-size:12px;}
+</style>
+</head>
+<body>
+<nav>
+  <div class="brand">BIN <span style="color:var(--green)">Monitor</span> <span class="date-badge">11/04/2026</span></div>
+  <a href="#hero">Visão Geral</a>
+  <a href="#delta">Variações</a>
+  <a href="#riscos">Em Risco</a>
+  <a href="#picpay">PicPay</a>
+  <a href="#original">Original</a>
+  <div class="dots">
+    <div class="dot active" onclick="goTo('#hero')"></div>
+    <div class="dot" onclick="goTo('#delta')"></div>
+    <div class="dot" onclick="goTo('#riscos')"></div>
+    <div class="dot" onclick="goTo('#picpay')"></div>
+    <div class="dot" onclick="goTo('#original')"></div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-label fade-up">VISION 21 — Atualização 11/04/2026</div>
+    <h1 class="hero-title fade-up s1">Range de <span class="accent">BIN</span><br>Monitoramento</h1>
+    <p class="hero-subtitle fade-up s2">PicPay &amp; Banco Original — Comparativo vs. 04/04/2026 (7 dias)</p>
+    
+    <div class="kpi-row fade-up s4">
+      <div class="kpi-card red"><div class="kpi-label">Críticos</div><div class="kpi-value">5</div><div class="kpi-sub">esgotados ou &lt;5% livre</div></div>
+      <div class="kpi-card orange"><div class="kpi-label">Em Alerta</div><div class="kpi-value">1</div><div class="kpi-sub">entre 5% e 15% livre</div></div>
+      <div class="kpi-card yellow"><div class="kpi-label">Atenção</div><div class="kpi-value">1</div><div class="kpi-sub">entre 15% e 35% livre</div></div>
+      <div class="kpi-card green"><div class="kpi-label">Saudáveis</div><div class="kpi-value">50</div><div class="kpi-sub">acima de 35% livre</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="delta">
+  <div class="container">
+    <div class="section-label fade-up">Comparativo</div>
+    <h2 class="fade-up s1">Variações vs. 04/04/2026</h2>
+    <p class="text-muted mb-40 fade-up s2">7 dias de delta — produtos com movimentação.</p>
+    <div class="delta-grid fade-up s3">
+      <div class="delta-card" style="border-color:rgba(239,68,68,.3);background:rgba(239,68,68,.05)">
+        <div class="delta-emissor">PIC PAY S.A.</div>
+        <div class="delta-produto">006 <span class="delta-chip consumo">▼ Consumo</span></div>
+        <div class="delta-row"><span>Faixas consumidas</span><span class="val neg">▼ 137.955</span></div>
+        <div class="delta-row"><span>Livre antes (04/04/2026)</span><span class="val">290.708</span></div>
+        <div class="delta-row"><span>Livre agora (11/04/2026)</span><span class="val neg">152.753</span></div>
+        <div class="delta-row"><span>Utilização</span><span class="val neg">97.09% → 98.47%</span></div>
+        <div class="delta-row"><span>Variação</span><span class="val neg">+1.3795 pp</span></div>
+        <div class="delta-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px"><span>Ritmo diário</span><span class="val neg">~19.708/dia</span></div>
+        <div class="delta-row"><span>Projeção esgotamento</span><span class="val neg">~24/04/2026 (~8d)</span></div>
+      </div>
+<div class="delta-card" style="">
+        <div class="delta-emissor">PIC PAY S.A.</div>
+        <div class="delta-produto">152 <span class="delta-chip consumo">▼ Consumo</span></div>
+        <div class="delta-row"><span>Faixas consumidas</span><span class="val neg">▼ 37.483</span></div>
+        <div class="delta-row"><span>Livre antes (04/04/2026)</span><span class="val">8.277.145</span></div>
+        <div class="delta-row"><span>Livre agora (11/04/2026)</span><span class="val ">8.239.662</span></div>
+        <div class="delta-row"><span>Utilização</span><span class="val ">17.23% → 17.60%</span></div>
+        <div class="delta-row"><span>Variação</span><span class="val neg">+0.3748 pp</span></div>
+        <div class="delta-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px"><span>Ritmo diário</span><span class="val neg">~5.355/dia</span></div>
+        <div class="delta-row"><span>Projeção esgotamento</span><span class="val neg">~03/07/2030 (~1539d)</span></div>
+      </div>
+<div class="delta-card" style="">
+        <div class="delta-emissor">PIC PAY S.A.</div>
+        <div class="delta-produto">102 <span class="delta-chip consumo">▼ Consumo</span></div>
+        <div class="delta-row"><span>Faixas consumidas</span><span class="val neg">▼ 4.113</span></div>
+        <div class="delta-row"><span>Livre antes (04/04/2026)</span><span class="val">9.628.615</span></div>
+        <div class="delta-row"><span>Livre agora (11/04/2026)</span><span class="val ">9.624.502</span></div>
+        <div class="delta-row"><span>Utilização</span><span class="val ">3.71% → 3.75%</span></div>
+        <div class="delta-row"><span>Variação</span><span class="val neg">+0.0411 pp</span></div>
+        <div class="delta-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px"><span>Ritmo diário</span><span class="val neg">~588/dia</span></div>
+        <div class="delta-row"><span>Projeção esgotamento</span><span class="val neg">~19/02/2071 (~16380d)</span></div>
+      </div>
+<div class="delta-card" style="">
+        <div class="delta-emissor">PIC PAY S.A.</div>
+        <div class="delta-produto">012 <span class="delta-chip consumo">▼ Consumo</span></div>
+        <div class="delta-row"><span>Faixas consumidas</span><span class="val neg">▼ 2.992</span></div>
+        <div class="delta-row"><span>Livre antes (04/04/2026)</span><span class="val">9.928.438</span></div>
+        <div class="delta-row"><span>Livre agora (11/04/2026)</span><span class="val ">9.925.446</span></div>
+        <div class="delta-row"><span>Utilização</span><span class="val ">0.72% → 0.75%</span></div>
+        <div class="delta-row"><span>Variação</span><span class="val neg">+0.0299 pp</span></div>
+        <div class="delta-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px"><span>Ritmo diário</span><span class="val neg">~427/dia</span></div>
+        <div class="delta-row"><span>Projeção esgotamento</span><span class="val neg">~12/11/2089 (~23221d)</span></div>
+      </div>
+<div class="delta-card" style="">
+        <div class="delta-emissor">PIC PAY S.A.</div>
+        <div class="delta-produto">011 <span class="delta-chip consumo">▼ Consumo</span></div>
+        <div class="delta-row"><span>Faixas consumidas</span><span class="val neg">▼ 17</span></div>
+        <div class="delta-row"><span>Livre antes (04/04/2026)</span><span class="val">9.999.974</span></div>
+        <div class="delta-row"><span>Livre agora (11/04/2026)</span><span class="val ">9.999.957</span></div>
+        <div class="delta-row"><span>Utilização</span><span class="val ">0.00% → 0.00%</span></div>
+        <div class="delta-row"><span>Variação</span><span class="val neg">+0.0002 pp</span></div>
+        <div class="delta-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px"><span>Ritmo diário</span><span class="val neg">~2/dia</span></div>
+        <div class="delta-row"><span>Projeção esgotamento</span><span class="val neg">~22/12/13299 (~4117629d)</span></div>
+      </div>
+<div class="delta-card" style="">
+        <div class="delta-emissor">PIC PAY S.A.</div>
+        <div class="delta-produto">008 <span class="delta-chip consumo">▼ Consumo</span></div>
+        <div class="delta-row"><span>Faixas consumidas</span><span class="val neg">▼ 4</span></div>
+        <div class="delta-row"><span>Livre antes (04/04/2026)</span><span class="val">9.999.996</span></div>
+        <div class="delta-row"><span>Livre agora (11/04/2026)</span><span class="val ">9.999.992</span></div>
+        <div class="delta-row"><span>Utilização</span><span class="val ">0.00% → 0.00%</span></div>
+        <div class="delta-row"><span>Variação</span><span class="val neg">+0.0000 pp</span></div>
+        <div class="delta-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px"><span>Ritmo diário</span><span class="val neg">~1/dia</span></div>
+        <div class="delta-row"><span>Projeção esgotamento</span><span class="val neg">~17/08/49939 (~17499986d)</span></div>
+      </div>
+      <div class="delta-card" style="">
+        <div class="delta-emissor">BANCO ORIGINAL S.A.</div>
+        <div class="delta-produto">503 <span class="delta-chip consumo">▼ Consumo</span></div>
+        <div class="delta-row"><span>Faixas consumidas</span><span class="val neg">▼ 267</span></div>
+        <div class="delta-row"><span>Livre antes (04/04/2026)</span><span class="val">193.706</span></div>
+        <div class="delta-row"><span>Livre agora (11/04/2026)</span><span class="val ">193.439</span></div>
+        <div class="delta-row"><span>Utilização</span><span class="val ">3.15% → 3.28%</span></div>
+        <div class="delta-row"><span>Variação</span><span class="val neg">+0.1335 pp</span></div>
+        <div class="delta-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px"><span>Ritmo diário</span><span class="val neg">~38/dia</span></div>
+        <div class="delta-row"><span>Projeção esgotamento</span><span class="val neg">~04/03/2040 (~5071d)</span></div>
+      </div>
+<div class="delta-card" style="">
+        <div class="delta-emissor">BANCO ORIGINAL S.A.</div>
+        <div class="delta-produto">501 <span class="delta-chip consumo">▼ Consumo</span></div>
+        <div class="delta-row"><span>Faixas consumidas</span><span class="val neg">▼ 289</span></div>
+        <div class="delta-row"><span>Livre antes (04/04/2026)</span><span class="val">992.575</span></div>
+        <div class="delta-row"><span>Livre agora (11/04/2026)</span><span class="val ">992.286</span></div>
+        <div class="delta-row"><span>Utilização</span><span class="val ">0.74% → 0.77%</span></div>
+        <div class="delta-row"><span>Variação</span><span class="val neg">+0.0289 pp</span></div>
+        <div class="delta-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px"><span>Ritmo diário</span><span class="val neg">~41/dia</span></div>
+        <div class="delta-row"><span>Projeção esgotamento</span><span class="val neg">~04/02/2092 (~24035d)</span></div>
+      </div>
+<div class="delta-card" style="">
+        <div class="delta-emissor">BANCO ORIGINAL S.A.</div>
+        <div class="delta-produto">508 <span class="delta-chip consumo">▼ Consumo</span></div>
+        <div class="delta-row"><span>Faixas consumidas</span><span class="val neg">▼ 1</span></div>
+        <div class="delta-row"><span>Livre antes (04/04/2026)</span><span class="val">199.994</span></div>
+        <div class="delta-row"><span>Livre agora (11/04/2026)</span><span class="val ">199.993</span></div>
+        <div class="delta-row"><span>Utilização</span><span class="val ">0.00% → 0.00%</span></div>
+        <div class="delta-row"><span>Variação</span><span class="val neg">+0.0005 pp</span></div>
+        <div class="delta-row" style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px"><span>Ritmo diário</span><span class="val neg">~0/dia</span></div>
+        <div class="delta-row"><span>Projeção esgotamento</span><span class="val neg">~24/03/5859 (~1399951d)</span></div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section id="riscos">
+  <div class="container">
+    <div class="section-label fade-up">Alertas</div>
+    <h2 class="fade-up s1">Produtos em Risco</h2>
+    <p class="text-muted mb-32 fade-up s2">Produtos com menos de 35% de capacidade livre.</p>
+    <div class="risk-grid fade-up s3">
+      <div class="risk-card crítico fade-up">
+        <div class="risk-card-header">
+          <div><div class="risk-emis">PIC PAY S.A.</div><div class="risk-title">Produto 005</div></div>
+          <span class="risk-badge critical">Esgotado</span>
+        </div>
+        <div class="risk-bar-wrap">
+          <div class="risk-bar-label"><span>Utilização</span><span style="color:var(--red);font-weight:700">100.00%</span></div>
+          <div class="risk-bar-track"><div class="risk-bar-fill critical" style="width:100%"></div></div>
+        </div>
+        <div class="risk-stats">
+          <div class="risk-stat"><div class="s-label">Total</div><div class="s-value">9.999.999</div></div>
+          <div class="risk-stat"><div class="s-label">Livres</div><div class="s-value red">0</div></div>
+          <div class="risk-stat"><div class="s-label">% Livre</div><div class="s-value red">0.00%</div></div>
+        </div>
+        <div class="risk-note neut">Sem alteração vs. 04/04/2026.</div>
+      </div>
+<div class="risk-card crítico fade-up">
+        <div class="risk-card-header">
+          <div><div class="risk-emis">PIC PAY S.A.</div><div class="risk-title">Produto 007</div></div>
+          <span class="risk-badge critical">Esgotado</span>
+        </div>
+        <div class="risk-bar-wrap">
+          <div class="risk-bar-label"><span>Utilização</span><span style="color:var(--red);font-weight:700">100.00%</span></div>
+          <div class="risk-bar-track"><div class="risk-bar-fill critical" style="width:100%"></div></div>
+        </div>
+        <div class="risk-stats">
+          <div class="risk-stat"><div class="s-label">Total</div><div class="s-value">9.999.999</div></div>
+          <div class="risk-stat"><div class="s-label">Livres</div><div class="s-value red">0</div></div>
+          <div class="risk-stat"><div class="s-label">% Livre</div><div class="s-value red">0.00%</div></div>
+        </div>
+        <div class="risk-note neut">Sem alteração vs. 04/04/2026.</div>
+      </div>
+<div class="risk-card crítico fade-up">
+        <div class="risk-card-header">
+          <div><div class="risk-emis">PIC PAY S.A.</div><div class="risk-title">Produto 002</div></div>
+          <span class="risk-badge critical">Crítico</span>
+        </div>
+        <div class="risk-bar-wrap">
+          <div class="risk-bar-label"><span>Utilização</span><span style="color:var(--red);font-weight:700">100.00%</span></div>
+          <div class="risk-bar-track"><div class="risk-bar-fill critical" style="width:99.9998%"></div></div>
+        </div>
+        <div class="risk-stats">
+          <div class="risk-stat"><div class="s-label">Total</div><div class="s-value">9.999.999</div></div>
+          <div class="risk-stat"><div class="s-label">Livres</div><div class="s-value red">11</div></div>
+          <div class="risk-stat"><div class="s-label">% Livre</div><div class="s-value red">0.00%</div></div>
+        </div>
+        <div class="risk-note neut">Sem alteração vs. 04/04/2026.</div>
+      </div>
+<div class="risk-card crítico fade-up">
+        <div class="risk-card-header">
+          <div><div class="risk-emis">PIC PAY S.A.</div><div class="risk-title">Produto 006</div></div>
+          <span class="risk-badge critical">~8 dias</span>
+        </div>
+        <div class="risk-bar-wrap">
+          <div class="risk-bar-label"><span>Utilização</span><span style="color:var(--red);font-weight:700">98.47%</span></div>
+          <div class="risk-bar-track"><div class="risk-bar-fill critical" style="width:98.4724%"></div></div>
+        </div>
+        <div class="risk-stats">
+          <div class="risk-stat"><div class="s-label">Total</div><div class="s-value">9.999.999</div></div>
+          <div class="risk-stat"><div class="s-label">Livres</div><div class="s-value red">152.753</div></div>
+          <div class="risk-stat"><div class="s-label">% Livre</div><div class="s-value red">1.53%</div></div>
+        </div>
+        <div class="risk-note crit">▼ 137.955 em 7d (~19.708/dia). Esgota ~24/04/2026.</div>
+      </div><div class="risk-card crítico fade-up">
+        <div class="risk-card-header">
+          <div><div class="risk-emis">BANCO ORIGINAL S.A.</div><div class="risk-title">Produto 201</div></div>
+          <span class="risk-badge critical">Crítico</span>
+        </div>
+        <div class="risk-bar-wrap">
+          <div class="risk-bar-label"><span>Utilização</span><span style="color:var(--red);font-weight:700">99.71%</span></div>
+          <div class="risk-bar-track"><div class="risk-bar-fill critical" style="width:99.7131%"></div></div>
+        </div>
+        <div class="risk-stats">
+          <div class="risk-stat"><div class="s-label">Total</div><div class="s-value">364.999</div></div>
+          <div class="risk-stat"><div class="s-label">Livres</div><div class="s-value red">1.047</div></div>
+          <div class="risk-stat"><div class="s-label">% Livre</div><div class="s-value red">0.29%</div></div>
+        </div>
+        <div class="risk-note neut">Sem alteração vs. 04/04/2026.</div>
+      </div>
+<div class="risk-card alerta fade-up">
+        <div class="risk-card-header">
+          <div><div class="risk-emis">BANCO ORIGINAL S.A.</div><div class="risk-title">Produto 203</div></div>
+          <span class="risk-badge alert">Alerta</span>
+        </div>
+        <div class="risk-bar-wrap">
+          <div class="risk-bar-label"><span>Utilização</span><span style="color:var(--orange);font-weight:700">90.30%</span></div>
+          <div class="risk-bar-track"><div class="risk-bar-fill alert" style="width:90.299%"></div></div>
+        </div>
+        <div class="risk-stats">
+          <div class="risk-stat"><div class="s-label">Total</div><div class="s-value">9.999</div></div>
+          <div class="risk-stat"><div class="s-label">Livres</div><div class="s-value orange">970</div></div>
+          <div class="risk-stat"><div class="s-label">% Livre</div><div class="s-value orange">9.70%</div></div>
+        </div>
+        <div class="risk-note neut">Sem alteração vs. 04/04/2026.</div>
+      </div>
+<div class="risk-card atenção fade-up">
+        <div class="risk-card-header">
+          <div><div class="risk-emis">BANCO ORIGINAL S.A.</div><div class="risk-title">Produto 011</div></div>
+          <span class="risk-badge warning">Atenção</span>
+        </div>
+        <div class="risk-bar-wrap">
+          <div class="risk-bar-label"><span>Utilização</span><span style="color:var(--yellow);font-weight:700">70.47%</span></div>
+          <div class="risk-bar-track"><div class="risk-bar-fill warning" style="width:70.4707%"></div></div>
+        </div>
+        <div class="risk-stats">
+          <div class="risk-stat"><div class="s-label">Total</div><div class="s-value">6.949.999</div></div>
+          <div class="risk-stat"><div class="s-label">Livres</div><div class="s-value yellow">2.052.285</div></div>
+          <div class="risk-stat"><div class="s-label">% Livre</div><div class="s-value yellow">29.53%</div></div>
+        </div>
+        <div class="risk-note neut">Sem alteração vs. 04/04/2026.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="picpay">
+  <div class="container">
+    <div class="section-label fade-up">Emissor 211</div>
+    <h2 class="fade-up s1">PIC PAY S.A.</h2>
+    <p class="text-muted mb-32 fade-up s2">17 produtos &nbsp;|&nbsp; 140.199.986 faixas totais &nbsp;|&nbsp; 42.064.063 utilizadas (30.00%) &nbsp;|&nbsp; 98.135.923 livres (70.00%)</p>
+    <div class="chart-section mb-40 fade-up s3">
+      <div class="chart-card">
+        <div class="chart-title">Utilização por Produto <span>(% util — 11/04/2026)</span></div>
+        <div class="bar-chart"><div class="bar-row">
+        <div class="bar-label" style="color:var(--red);font-weight:700">005</div>
+        <div class="bar-track"><div class="bar-fill c" style="width:100%">100.00%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" style="color:var(--red);font-weight:700">007</div>
+        <div class="bar-track"><div class="bar-fill c" style="width:100%">100.00%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" style="color:var(--red);font-weight:700">002</div>
+        <div class="bar-track"><div class="bar-fill c" style="width:99.9998%">100.00%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" style="color:var(--red);font-weight:700">006</div>
+        <div class="bar-track"><div class="bar-fill c" style="width:98.4724%">98.47%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >152</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:17.6033%">17.60%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >001</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:6.395%">6.39%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >102</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:3.7549%">3.75%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >012</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:0.7455%">0.75%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >011</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:0.0004%">0.00%</div></div>
+      </div></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Resumo de Capacidade</div>
+        <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--text-muted)">Total de faixas</span><span style="font-weight:600">140.199.986</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--text-muted)">Utilizadas</span><span style="font-weight:600;color:var(--red)">42.064.063</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--text-muted)">Livres</span><span style="font-weight:600;color:var(--green)">98.135.923</span></div>
+          <div style="height:1px;background:var(--border)"></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--text-muted)">% Livre</span><span style="font-weight:700;color:var(--green)">70.00%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="table-wrap fade-up s4">
+      <table>
+        <thead><tr><th>Produto</th><th>Número Inicial</th><th>Número Final</th><th class="right">Qtde Faixa</th><th class="right">Qtde Livre</th><th>% Utilizado</th><th>Δ vs 04/04/2026</th><th>ST</th><th>Risco</th></tr></thead>
+        <tbody><tr style="background:rgba(239,68,68,.04)">
+      <td><strong style="color:var(--red)">005</strong></td>
+      <td class="mono">0002231150000000000</td>
+      <td class="mono">0002231159999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" style="color:var(--red);font-weight:700">0</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill c" style="width:100%"></div></div><span class="pct-txt c">100.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill crítico">Esgotado</span></td>
+    </tr>
+<tr style="background:rgba(239,68,68,.04)">
+      <td><strong style="color:var(--red)">007</strong></td>
+      <td class="mono">0002236560000000000</td>
+      <td class="mono">0002236569999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" style="color:var(--red);font-weight:700">0</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill c" style="width:100%"></div></div><span class="pct-txt c">100.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill crítico">Esgotado</span></td>
+    </tr>
+<tr style="background:rgba(239,68,68,.04)">
+      <td><strong style="color:var(--red)">002</strong></td>
+      <td class="mono">0002227630000000000</td>
+      <td class="mono">0002227639999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" style="color:var(--red);font-weight:700">11</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill c" style="width:99.9998%"></div></div><span class="pct-txt c">100.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill crítico">Crítico</span></td>
+    </tr>
+<tr style="background:rgba(239,68,68,.04)">
+      <td><strong style="color:var(--red)">006</strong></td>
+      <td class="mono">0002340740000000000</td>
+      <td class="mono">0002340749999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" style="color:var(--orange);font-weight:600">152.753</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill c" style="width:98.4724%"></div></div><span class="pct-txt c">98.47%</span></div></td>
+      <td><span class="delta-inline neg">▼137.955</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill crítico">~8d</span></td>
+    </tr>
+<tr >
+      <td><strong>152</strong></td>
+      <td class="mono">0002340750000000000</td>
+      <td class="mono">0002340759999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >8.239.662</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:17.6033%"></div></div><span class="pct-txt g">17.60%</span></div></td>
+      <td><span class="delta-inline neg">▼37.483</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>001</strong></td>
+      <td class="mono">0005614340000000000</td>
+      <td class="mono">0005614340099999999</td>
+      <td class="right">99.999</td>
+      <td class="right" >93.604</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:6.395%"></div></div><span class="pct-txt g">6.39%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-m">M</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>102</strong></td>
+      <td class="mono">0002340760000000000</td>
+      <td class="mono">0002340769999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.624.502</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:3.7549%"></div></div><span class="pct-txt g">3.75%</span></div></td>
+      <td><span class="delta-inline neg">▼4.113</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>012</strong></td>
+      <td class="mono">0005442140000000000</td>
+      <td class="mono">0005442149999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.925.446</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.7455%"></div></div><span class="pct-txt g">0.75%</span></div></td>
+      <td><span class="delta-inline neg">▼2.992</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>011</strong></td>
+      <td class="mono">0005442780000000000</td>
+      <td class="mono">0005442789999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.999.957</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.0004%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span class="delta-inline neg">▼17</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>003</strong></td>
+      <td class="mono">0005614340100000000</td>
+      <td class="mono">0005614340199999999</td>
+      <td class="right">99.999</td>
+      <td class="right" >99.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>004</strong></td>
+      <td class="mono">0005345437000000000</td>
+      <td class="mono">0005345437000002999</td>
+      <td class="right">2</td>
+      <td class="right" >2</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-m">M</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>008</strong></td>
+      <td class="mono">0002236430000000000</td>
+      <td class="mono">0002236439999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.999.992</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span class="delta-inline neg">▼4</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>020</strong></td>
+      <td class="mono">0005559340000000000</td>
+      <td class="mono">0005559349999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>021</strong></td>
+      <td class="mono">0005446160000000000</td>
+      <td class="mono">0005446169999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>022</strong></td>
+      <td class="mono">0005445580000000000</td>
+      <td class="mono">0005445589999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>023</strong></td>
+      <td class="mono">0005444080000000000</td>
+      <td class="mono">0005444089999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>024</strong></td>
+      <td class="mono">0005444950000000000</td>
+      <td class="mono">0005444959999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="original">
+  <div class="container">
+    <div class="section-label fade-up">Emissor 212</div>
+    <h2 class="fade-up s1">Banco Original S.A.</h2>
+    <p class="text-muted mb-32 fade-up s2">40 produtos &nbsp;|&nbsp; 95.565.960 faixas totais &nbsp;|&nbsp; 6.142.170 utilizadas (6.43%) &nbsp;|&nbsp; 89.423.790 livres (93.57%)</p>
+    <div class="chart-section mb-40 fade-up s3">
+      <div class="chart-card">
+        <div class="chart-title">Maior utilização <span>(top 7 — 11/04/2026)</span></div>
+        <div class="bar-chart"><div class="bar-row">
+        <div class="bar-label" style="color:var(--red);font-weight:700">201</div>
+        <div class="bar-track"><div class="bar-fill c" style="width:99.7131%">99.71%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >203</div>
+        <div class="bar-track"><div class="bar-fill a" style="width:90.299%">90.30%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >011</div>
+        <div class="bar-track"><div class="bar-fill w" style="width:70.4707%">70.47%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >051</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:9.2227%">9.22%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >503</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:3.28%">3.28%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >151</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:1.4931%">1.49%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >501</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:0.7713%">0.77%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >101</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:0.6211%">0.62%</div></div>
+      </div>
+<div class="bar-row">
+        <div class="bar-label" >202</div>
+        <div class="bar-track"><div class="bar-fill g" style="width:0.4004%">0.40%</div></div>
+      </div></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Resumo de Capacidade</div>
+        <div style="background:rgba(255,255,255,.04);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--text-muted)">Total de faixas</span><span style="font-weight:600">95.565.960</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--text-muted)">Utilizadas</span><span style="font-weight:600;color:var(--blue)">6.142.170</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--text-muted)">Livres</span><span style="font-weight:600;color:var(--green)">89.423.790</span></div>
+          <div style="height:1px;background:var(--border)"></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:var(--text-muted)">% Livre</span><span style="font-weight:700;color:var(--green)">93.57%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="table-wrap fade-up s4">
+      <table>
+        <thead><tr><th>Produto</th><th>Número Inicial</th><th>Número Final</th><th class="right">Qtde Faixa</th><th class="right">Qtde Livre</th><th>% Utilizado</th><th>Δ vs 04/04/2026</th><th>ST</th><th>Risco</th></tr></thead>
+        <tbody><tr style="background:rgba(239,68,68,.04)">
+      <td><strong style="color:var(--red)">201</strong></td>
+      <td class="mono">0005313720000000000</td>
+      <td class="mono">0005313720364999999</td>
+      <td class="right">364.999</td>
+      <td class="right" style="color:var(--red);font-weight:700">1.047</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill c" style="width:99.7131%"></div></div><span class="pct-txt c">99.71%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-m">M</span></td>
+      <td><span class="pill crítico">Crítico</span></td>
+    </tr>
+<tr >
+      <td><strong>203</strong></td>
+      <td class="mono">0005313725010000000</td>
+      <td class="mono">0005313725019999999</td>
+      <td class="right">9.999</td>
+      <td class="right" style="color:var(--yellow);font-weight:600">970</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill a" style="width:90.299%"></div></div><span class="pct-txt a">90.30%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-m">M</span></td>
+      <td><span class="pill alerta">Alerta</span></td>
+    </tr>
+<tr >
+      <td><strong>011</strong></td>
+      <td class="mono">0005345400050000000</td>
+      <td class="mono">0005345406999999999</td>
+      <td class="right">6.949.999</td>
+      <td class="right" >2.052.285</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill w" style="width:70.4707%"></div></div><span class="pct-txt w">70.47%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-m">M</span></td>
+      <td><span class="pill atenção">Atenção</span></td>
+    </tr>
+<tr >
+      <td><strong>051</strong></td>
+      <td class="mono">0005345430000000000</td>
+      <td class="mono">0005345436999999999</td>
+      <td class="right">6.999.999</td>
+      <td class="right" >6.354.405</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:9.2227%"></div></div><span class="pct-txt g">9.22%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-m">M</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>503</strong></td>
+      <td class="mono">0005313721365000000</td>
+      <td class="mono">0005313721564999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >193.439</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:3.28%"></div></div><span class="pct-txt g">3.28%</span></div></td>
+      <td><span class="delta-inline neg">▼267</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>151</strong></td>
+      <td class="mono">0005371100000000000</td>
+      <td class="mono">0005371109999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.850.688</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:1.4931%"></div></div><span class="pct-txt g">1.49%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>501</strong></td>
+      <td class="mono">0005313720365000000</td>
+      <td class="mono">0005313721364999999</td>
+      <td class="right">999.999</td>
+      <td class="right" >992.286</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.7713%"></div></div><span class="pct-txt g">0.77%</span></div></td>
+      <td><span class="delta-inline neg">▼289</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>101</strong></td>
+      <td class="mono">0005284000000000000</td>
+      <td class="mono">0005284009999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.937.885</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.6211%"></div></div><span class="pct-txt g">0.62%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>202</strong></td>
+      <td class="mono">0005313725000000000</td>
+      <td class="mono">0005313725000999999</td>
+      <td class="right">999</td>
+      <td class="right" >995</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.4004%"></div></div><span class="pct-txt g">0.40%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-m">M</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>001</strong></td>
+      <td class="mono">0005345400000000000</td>
+      <td class="mono">0005345400049999999</td>
+      <td class="right">49.999</td>
+      <td class="right" >49.938</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.122%"></div></div><span class="pct-txt g">0.12%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-m">M</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>506</strong></td>
+      <td class="mono">0005313721965000000</td>
+      <td class="mono">0005313722164999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.921</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.039%"></div></div><span class="pct-txt g">0.04%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>005</strong></td>
+      <td class="mono">0002230310000000000</td>
+      <td class="mono">0002230310049999999</td>
+      <td class="right">49.999</td>
+      <td class="right" >49.986</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.026%"></div></div><span class="pct-txt g">0.03%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-m">M</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>504</strong></td>
+      <td class="mono">0005313721765000000</td>
+      <td class="mono">0005313721964999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.991</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.004%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>505</strong></td>
+      <td class="mono">0005313721565000000</td>
+      <td class="mono">0005313721764999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.991</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.004%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>508</strong></td>
+      <td class="mono">0005313722765000000</td>
+      <td class="mono">0005313722964999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.993</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.003%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span class="delta-inline neg">▼1</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>514</strong></td>
+      <td class="mono">0005313722565000000</td>
+      <td class="mono">0005313722764999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.995</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.002%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>515</strong></td>
+      <td class="mono">0005313722965000000</td>
+      <td class="mono">0005313723164999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.998</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0.0005%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>012</strong></td>
+      <td class="mono">0005345407000000000</td>
+      <td class="mono">0005345409999999999</td>
+      <td class="right">2.999.999</td>
+      <td class="right" >2.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>015</strong></td>
+      <td class="mono">0002230310050000000</td>
+      <td class="mono">0002230316999999999</td>
+      <td class="right">6.949.999</td>
+      <td class="right" >6.949.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>055</strong></td>
+      <td class="mono">0002230280000000000</td>
+      <td class="mono">0002230286999999999</td>
+      <td class="right">6.999.999</td>
+      <td class="right" >6.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>102</strong></td>
+      <td class="mono">0002230270000000000</td>
+      <td class="mono">0002230279999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>152</strong></td>
+      <td class="mono">0002230320000000000</td>
+      <td class="mono">0002230329999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>303</strong></td>
+      <td class="mono">0006509700000000000</td>
+      <td class="mono">0006509709999999999</td>
+      <td class="right">9.999.999</td>
+      <td class="right" >9.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>401</strong></td>
+      <td class="mono">0002230330000000000</td>
+      <td class="mono">0002230334999999999</td>
+      <td class="right">4.999.999</td>
+      <td class="right" >4.999.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>403</strong></td>
+      <td class="mono">0002230335010000000</td>
+      <td class="mono">0002230339999999999</td>
+      <td class="right">4.989.999</td>
+      <td class="right" >4.989.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>507</strong></td>
+      <td class="mono">0005313722165000000</td>
+      <td class="mono">0005313722364999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>509</strong></td>
+      <td class="mono">0005313723165000000</td>
+      <td class="mono">0005313723364999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>510</strong></td>
+      <td class="mono">0005313723965000000</td>
+      <td class="mono">0005313724164999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>511</strong></td>
+      <td class="mono">0005313724385000000</td>
+      <td class="mono">0005313724404999999</td>
+      <td class="right">19.999</td>
+      <td class="right" >19.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>512</strong></td>
+      <td class="mono">0005313723365000000</td>
+      <td class="mono">0005313723564999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>513</strong></td>
+      <td class="mono">0005313722365000000</td>
+      <td class="mono">0005313722564999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>516</strong></td>
+      <td class="mono">0005313724165000000</td>
+      <td class="mono">0005313724364999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>517</strong></td>
+      <td class="mono">0005313724365000000</td>
+      <td class="mono">0005313724384999999</td>
+      <td class="right">19.999</td>
+      <td class="right" >19.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>519</strong></td>
+      <td class="mono">0005313723565000000</td>
+      <td class="mono">0005313723764999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>520</strong></td>
+      <td class="mono">0005313723765000000</td>
+      <td class="mono">0005313723964999999</td>
+      <td class="right">199.999</td>
+      <td class="right" >199.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>524</strong></td>
+      <td class="mono">0005313724405000000</td>
+      <td class="mono">0005313724424999999</td>
+      <td class="right">19.999</td>
+      <td class="right" >19.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>530</strong></td>
+      <td class="mono">0005313724425000000</td>
+      <td class="mono">0005313724444999999</td>
+      <td class="right">19.999</td>
+      <td class="right" >19.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>531</strong></td>
+      <td class="mono">0005313724445000000</td>
+      <td class="mono">0005313724464999999</td>
+      <td class="right">19.999</td>
+      <td class="right" >19.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>532</strong></td>
+      <td class="mono">0005313724515000000</td>
+      <td class="mono">0005313724564999999</td>
+      <td class="right">49.999</td>
+      <td class="right" >49.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr>
+<tr >
+      <td><strong>533</strong></td>
+      <td class="mono">0005313724465000000</td>
+      <td class="mono">0005313724514999999</td>
+      <td class="right">49.999</td>
+      <td class="right" >49.999</td>
+      <td><div class="pct-bar"><div class="pct-mini"><div class="pct-mini-fill g" style="width:0%"></div></div><span class="pct-txt g">0.00%</span></div></td>
+      <td><span style="color:var(--text-dim);font-size:12px">—</span></td>
+      <td><span class="tag-a">A</span></td>
+      <td><span class="pill ok">OK</span></td>
+    </tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Fonte: VISION 21 — UPRPB421 (B421) &nbsp;|&nbsp; Atualização: 11/04/2026</div>
+  <div style="margin-top:4px;">PIC PAY S.A. (211) &nbsp;&amp;&nbsp; BANCO ORIGINAL S.A. (212) — Produtos Vision-Plus</div>
+  <div style="margin-top:4px;">Comparativo com 04/04/2026 — 7 dias de delta</div>
+  <div style="margin-top:8px;font-size:11px;color:var(--text-dim)">Gerado automaticamente por BinMonitor</div>
+</footer>
+<script>
+  const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:.08});
+  document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+  const secs=document.querySelectorAll('section'),dots=document.querySelectorAll('.dot'),links=document.querySelectorAll('nav a');
+  const secObs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){const i=Array.from(secs).indexOf(x.target);dots.forEach((d,j)=>d.classList.toggle('active',i===j));links.forEach((a,j)=>a.classList.toggle('active',i===j));}}),{threshold:.35});
+  secs.forEach(s=>secObs.observe(s));
+  function goTo(id){document.querySelector(id).scrollIntoView({behavior:'smooth'});}
+  const ids=['#hero','#delta','#riscos','#picpay','#original'];let cur=0;
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'||e.key===' '){e.preventDefault();cur=Math.min(cur+1,ids.length-1);goTo(ids[cur]);}
+    if(e.key==='ArrowUp'){e.preventDefault();cur=Math.max(cur-1,0);goTo(ids[cur]);}
+  });
+</script>
+</body>
+</html>
